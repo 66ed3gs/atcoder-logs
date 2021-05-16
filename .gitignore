@@ -1,2 +1,8 @@
+# json
+contest.*.json
+
 # test
 tests
+
+# mac
+.DS_Store
