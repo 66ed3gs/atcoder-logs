@@ -40,6 +40,13 @@ func nextInt(vars ...*int) {
 	}
 }
 
+func nextStr(vars ...*string) {
+	str := strings.Split(nextLine(), " ")
+	for i, v := range vars {
+		*v = str[i]
+	}
+}
+
 func nextIntSlice(s *[]int) {
 	nums := strings.Split(nextLine(), " ")
 
@@ -49,26 +56,26 @@ func nextIntSlice(s *[]int) {
 	}
 }
 
-func write(s ...interface{}) {
-	fmt.Fprintln(writer, s...)
-}
+func nextStrSlice(s *[]string) {
+	str := strings.Split(nextLine(), " ")
 
-func writeIntSlice(s []int) {
-	output := make([]interface{}, len(s))
-	for i, v := range s {
-		output[i] = v
+	(*s) = make([]string, len(str))
+	for i, v := range str {
+		(*s)[i] = v
 	}
-	fmt.Fprintln(writer, output...)
-}
-
-func output() {
-	_ = writer.Flush()
 }
 
 func sortSlice(s []int) []int {
 	sort.Slice(s, func(i, j int) bool {
 		return s[i] < s[j]
 	})
+	return s
+}
+
+func reverse(s []int) []int {
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
 	return s
 }
 
@@ -105,6 +112,22 @@ func abs(x int) int {
 		x = -x
 	}
 	return x
+}
+
+func write(s ...interface{}) {
+	fmt.Fprintln(writer, s...)
+}
+
+func writeIntSlice(s []int) {
+	output := make([]interface{}, len(s))
+	for i, v := range s {
+		output[i] = v
+	}
+	fmt.Fprintln(writer, output...)
+}
+
+func output() {
+	_ = writer.Flush()
 }
 
 func main() {
