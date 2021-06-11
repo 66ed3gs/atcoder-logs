@@ -10,7 +10,13 @@ import (
 )
 
 func solve() {
+	var n int
+	nextInt(&n)
 
+	var a []int
+	nextIntSlice(&a)
+
+	write()
 }
 
 var (
