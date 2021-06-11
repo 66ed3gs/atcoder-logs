@@ -9,36 +9,6 @@ import (
 	"strings"
 )
 
-func count(prefix int, dig int) int {
-	// count := 0
-	if dig == 1 {
-		return 9
-	}
-
-	if prefix < dig {
-
-	}
-	return 0
-}
-
-func happy(x int64) bool {
-	s := strings.Split(strconv.FormatInt(x, 10), "")
-	if len(s) == 1 {
-		return true
-	}
-
-	for i, v := range s[1:] {
-		a, _ := strconv.Atoi(s[i])
-		b, _ := strconv.Atoi(v)
-
-		if abs(a-b) > 1 {
-			return false
-		}
-	}
-
-	return true
-}
-
 func solve() {
 	var k int
 	nextInt(&k)
@@ -53,8 +23,8 @@ func solve() {
 		queue = append(queue, int64(i))
 	}
 
-	for len(queue) < k {
-		write(len(queue))
+	for {
+		b := len(queue)
 		for _, v := range queue {
 			if v%10 != 0 {
 				queue = append(queue, 10*v+v%10-1)
@@ -65,10 +35,16 @@ func solve() {
 			if v%10 != 9 {
 				queue = append(queue, 10*v+v%10+1)
 			}
-		}
-	}
 
-	write(queue[k-1])
+			if k < len(queue) {
+				write(queue[k-1])
+				return
+			}
+		}
+
+		k -= len(queue[:b])
+		queue = queue[b:]
+	}
 }
 
 var (
@@ -176,7 +152,7 @@ func write(s ...interface{}) {
 	fmt.Fprintln(writer, s...)
 }
 
-func writeIntSlice(s []int) {
+func writeIntSlice(s []int64) {
 	output := make([]interface{}, len(s))
 	for i, v := range s {
 		output[i] = v
