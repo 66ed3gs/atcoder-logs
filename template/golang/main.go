@@ -16,7 +16,7 @@ func solve() {
 	var a []int
 	nextIntSlice(&a)
 
-	write()
+	write(n)
 }
 
 var (
@@ -46,6 +46,14 @@ func nextInt(vars ...*int) {
 	}
 }
 
+func nextInt64(vars ...*int64) {
+	nums := strings.Split(nextLine(), " ")
+	for i, v := range vars {
+		*v, _ = strconv.ParseInt(nums[i], 10, 64)
+
+	}
+}
+
 func nextStr(vars ...*string) {
 	str := strings.Split(nextLine(), " ")
 	for i, v := range vars {
@@ -62,6 +70,15 @@ func nextIntSlice(s *[]int) {
 	}
 }
 
+func nextInt64Slice(s *[]int64) {
+	nums := strings.Split(nextLine(), " ")
+
+	(*s) = make([]int64, len(nums))
+	for i, v := range nums {
+		(*s)[i], _ = strconv.ParseInt(v, 10, 64)
+	}
+}
+
 func nextStrSlice(s *[]string) {
 	str := strings.Split(nextLine(), " ")
 
@@ -73,7 +90,7 @@ func nextStrSlice(s *[]string) {
 
 func sortSlice(s []int) []int {
 	sort.Slice(s, func(i, j int) bool {
-		return s[i] < s[j]
+		return s[i] > s[j]
 	})
 	return s
 }
@@ -132,11 +149,7 @@ func writeIntSlice(s []int) {
 	fmt.Fprintln(writer, output...)
 }
 
-func output() {
-	_ = writer.Flush()
-}
-
 func main() {
+	defer writer.Flush()
 	solve()
-	output()
 }
