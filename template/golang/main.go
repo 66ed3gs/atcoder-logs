@@ -88,6 +88,18 @@ func nextStrSlice(s *[]string) {
 	}
 }
 
+func s2i(s string) int {
+	i, e := strconv.Atoi(s)
+	if e != nil {
+		panic(e)
+	}
+	return i
+}
+
+func i2s(i int) string {
+	return strconv.Itoa(i)
+}
+
 func sortSlice(s []int) []int {
 	sort.Slice(s, func(i, j int) bool {
 		return s[i] > s[j]
