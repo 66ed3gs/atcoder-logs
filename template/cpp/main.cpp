@@ -5,9 +5,9 @@
 #include <iostream>
 #include <vector>
 
-#define REP(i, n) for (long i = 0; i < n; i++)
-#define REPR(i, n) for (long i = n - 1; i >= 0; i--)
-#define FOR(i, m, n) for (long i = m; i < n; i++)
+#define REP(i, n) for (int i = 0; i < n; i++)
+#define REPR(i, n) for (int i = n - 1; i >= 0; i--)
+#define FOR(i, m, n) for (int i = m; i < n; i++)
 
 #define ALL(v) v.begin(), v.end()
 
@@ -18,9 +18,5 @@ typedef long long ll;
 
 using namespace std;
 
-int main() {
-    REP(i, 10) cout << i << endl;
-    REPR(l, 10) cout << l << endl;
-    FOR(i, 10, 20) cout << i << endl;
-}
+int main() { int n; }
 
