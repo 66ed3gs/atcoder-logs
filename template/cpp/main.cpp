@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <functional>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 #define REP(i, n) for (int i = 0; i < n; i++)
 #define REPR(i, n) for (int i = n - 1; i >= 0; i--)
@@ -19,7 +14,11 @@ typedef long long ll;
 
 using namespace std;
 
-int main() {
+signed main() {
     int n;
     cin >> n;
+
+    cout << n;
+
+    return 0;
 }
