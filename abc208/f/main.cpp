@@ -1,10 +1,11 @@
-# [include](<*#_x_bits./stdin)]['c++.h]
-*][```---```][
+# [include](<*#_x_bits./stdin)][
+][*]'c++.h][
+][```---```][
 #define REP(i, n) for (int i = 0; i < n; i++)
 #define REPR(i, n) for (int i = n - 1; i >= 0; i--)
 #define FOR(i, m, n) for (int i = m; i < n; i++)
 #define ALL(v) v.begin(), v.end()
-][*.][/```---```]
+][/```---```]
 typedef long long ll;x
 
 / sort(ALL(a))
