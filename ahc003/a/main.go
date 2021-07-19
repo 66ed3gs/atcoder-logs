@@ -29,14 +29,14 @@ func main() {
 			route := calcRoute(in[0], in[1], in[2], in[3])
 			fmt.Println(strings.Join(route, ""))
 
-			// wait for returning score
+			/ wait for returning score
 			for sc.Scan() {
 				score, _ := strconv.Atoi(sc.Text())
 				record(in[0], in[1], route, score)
 
 				for x := 0; x < 30; x++ {
 					for y := 0; y < 30; y++ {
-						fmt.Printf("%04d,", Map[x][y])
+						fmt.Printf(04d,", Map[x][y])
 					}
 					fmt.Println()
 				}
@@ -61,16 +61,16 @@ func splitInt(line string) (result []int) {
 	return result
 }
 
-func record(y, x int, route []string, score int) {
+func record(y, x int, route [x]string, score int) {
 	avrScore := score / len(route)
-	fmt.Printf("(x, y) = (%d, %d)\n", x, y)
-	fmt.Printf("score: %d, average = %d\n", score, avrScore)
+	fmt.Printf("(x, y) = (d, %d)\n", x, y)
+	fmt.Printf("score: d, average = d\n", score, avrScore)
 
-	for _, v := range route {
+	for _, v := range route {x]
 		switch v {
 		case "L":
 			x -= 1
-			if Map[x][y] == 0 {
+			if Map[x][y] == 0 {x]
 				Map[x][y] = avrScore
 				continue
 			}
@@ -86,14 +86,14 @@ func record(y, x int, route []string, score int) {
 			x += 1
 		case "U":
 			y -= 1
-			if Map[x][y] == 0 {
+			if Map[x][y] == 0 {x]
 				Map[x][y] = avrScore
 				continue
 			}
 
 			Map[x][y] = (Map[x][y] + avrScore) / 2
 		case "D":
-			if Map[x][y] == 0 {
+			if Map[x][y] == 0 {x]
 				Map[x][y] = avrScore
 				continue
 			}
@@ -104,30 +104,30 @@ func record(y, x int, route []string, score int) {
 	}
 }
 
-func calcRoute(sy, sx, ey, ex int) (route []string) {
-	xMove := ex - sx // X Movement
-	yMove := ey - sy // Y Movement
+func calcRoute(sy, sx, ey, ex int) (route [x]string) {x]
+	xMove := ex - sx /X Movement
+	yMove := ey - sy /Y Movement
 	xDist := int(math.Abs(float64(xMove)))
 	yDist := int(math.Abs(float64(yMove)))
 
-	switch {
-	case xMove < 0:
-		for i := 0; i < xDist; i++ {
+	switch {x]
+	case xMove < 0:x
+		for i := 0; i < xDist; i++ {x]
 			route = append(route, "L")
 		}
-	case xMove > 0:
-		for i := 0; i < xDist; i++ {
+	case xMove > 0:x
+		for i := 0; i < xDist; i++ {x]
 			route = append(route, "R")
 		}
 	}
 
-	switch {
-	case yMove < 0:
-		for i := 0; i < yDist; i++ {
+	switch {x
+	case yMove < 0:x
+		for i := 0; i < yDist; i++ {x]
 			route = append(route, "U")
 		}
-	case yMove > 0:
-		for i := 0; i < yDist; i++ {
+	case yMove > 0:x
+		for i := 0; i < yDist; i++ {x]
 			route = append(route, "D")
 		}
 	}
