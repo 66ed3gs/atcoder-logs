@@ -5,20 +5,15 @@
 #define FOR(i, m, n) for (int i = m; i < n; i++)
 #define ALL(v) v.begin(), v.end()
 
-typedef long long ll;
+#define pb(x) push_back(x)
 
-// sort(ALL(a))
-// sortALL(a), greater<>())
-// int max = *max_element(ALL(a));
-// int min = *min_element(ALL(a));
+typedef long long ll;
 
 using namespace std;
 
 signed main() {
-    int n;
-    cin >> n;
-
-    cout << n;
+    //
 
     return 0;
 }
+
